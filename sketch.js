@@ -1,3 +1,4 @@
+
 let ancho = 20
 let alto = 20
 let cols, rengs
@@ -17,6 +18,7 @@ function setup() {
 
 function draw() {
   // put drawing code here
+
   
   for (let i=0; i<cols; i++) {
     for (let j=0; j<rengs; j++){
@@ -28,6 +30,7 @@ function draw() {
 }
 
 function mouseClicked() {
+
   let x = Math.floor(mouseX/ancho)
   let y = Math.floor(mouseY/alto)
   if (x<cols && y<rengs) {
