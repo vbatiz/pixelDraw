@@ -4,16 +4,26 @@ let alto = 20
 let cols, rengs
 
 let miSelector
+let botonLimpiar
+let botonGuardar
+
 let c
 
 function setup() {
- // put setup code here
- createCanvas(740, 740)
- cols = 32
- rengs = 32
- miSelector = createColorPicker()
- miSelector.position((cols+1)*ancho, 10)
- background(255)
+  // put setup code here
+  createCanvas(640, 640)
+  cols = 32
+  rengs = 32
+  miSelector = createColorPicker()
+  miSelector.position((cols+1)*ancho, 10)
+  botonLimpiar = createButton('Limpiar')
+  botonLimpiar.position((cols+1)*ancho, 50)
+  botonLimpiar.mousePressed(limpiarCanvas)
+
+  botonGuardar = createButton('Guardar')
+  botonGuardar.position((cols+1)*ancho, 90)
+  botonGuardar.mousePressed(guardarImagen)
+  background(255)
 }
 
 function draw() {
@@ -47,4 +57,12 @@ function mouseDragged() {
     noStroke()
     rect(x*ancho, y*alto, ancho, alto)
   }
+}
+
+function limpiarCanvas() {
+  background(255)
+}
+
+function guardarImagen() {
+  saveCanvas('dibujo_canvas', 'png')
 }
