@@ -3,6 +3,8 @@ let alto=20
 let cols,rengs
 let SelectorColor
 let color
+let botonLimpiar
+let botonGuardar
 
 
 function setup() {
@@ -12,6 +14,13 @@ function setup() {
     rengs=32
     SelectorColor=createColorPicker()
     SelectorColor.position((cols+1)*ancho,10)
+    botonLimpiar=createButton('Limpiar')
+    botonLimpiar.position((cols+1)*ancho,50)
+    botonLimpiar.mousePressed(limpiarCanvas)
+    botonGuardar=createButton('Guardar')
+    botonGuardar.position((cols+1)*ancho,90)
+    botonGuardar.mousePressed(guardarImg)
+
     background(255)
 }
 
@@ -47,4 +56,12 @@ function mouseDragged(){
     noStroke()
     rect(x*ancho,y*alto,ancho,alto)
   }
+}
+
+function limpiarCanvas(){
+    background(255)
+}
+
+function guardarImg(){
+  saveCanvas('miDibujo','png')
 }
